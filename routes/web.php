@@ -35,6 +35,7 @@ Route::get('/posts/{post}', [\App\Http\Controllers\PostController::class, 'show'
 Route::post('/posts', [\App\Http\Controllers\PostController::class, 'store'])->name('post.store');
 Route::get('/posts/{post}/edit', [\App\Http\Controllers\PostController::class, 'edit'])->name('post.edit');
 Route::patch('/posts/{post}', [\App\Http\Controllers\PostController::class, 'update'])->name('post.update');
+Route::delete('/posts/{post}', [\App\Http\Controllers\PostController::class, 'delete'])->name('post.delete');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -8,9 +8,11 @@
         <form @submit.prevent="store">
             <div class="mb-4">
                 <input v-model="title" class="w-full rounded-full border-grey-300" type="text" placeholder="title">
+                <div v-if="errors.title" class="text-red-600 text-sm">{{ errors.title }}</div>
             </div>
             <div class="mb-4">
                 <textarea v-model="content" class="w-full rounded-full border-grey-300" placeholder="content"></textarea>
+                <div v-if="errors.content" class="text-red-600 text-sm">{{ errors.content }}</div>
             </div>
             <div>
                 <button class="ml-auto hover:bg-white hover:text-sky-500 block p-2 w-32 border border-sky-500 bg-sky-500 rounded-full text-center text-white" type="submit">Store</button>
@@ -29,6 +31,10 @@ export default {
     },
 
     layout: MainLayout,
+
+    props: [
+        'errors'
+    ],
 
     data(){
         return {
